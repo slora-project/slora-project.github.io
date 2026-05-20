@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SLORA — Sick Leave on the Rise in Austria</title>
+  <meta name="description" content="SLORA is a Data:Research:Austria (ÖAW) project studying respiratory disease-related sick leave in Austria." />
+
+  <style>
+    :root {
+      --text: #1f2933;
+      --muted: #667085;
+      --line: #e4e7ec;
+      --box: #ffffff;
+      --soft: #f8fafc;
+      --link: #2457a6;
+      --max: 1120px;
+      --sidebar: 275px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 30px 22px 56px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: var(--sidebar) minmax(0, 1fr);
+      gap: 42px;
+      align-items: start;
+    }
+
+    aside {
+      position: sticky;
+      top: 28px;
+      padding-right: 28px;
+    }
+
+    .logo-block {
+      width: 160px;
+      margin-bottom: 22px;
+    }
+
+    .logo-block img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .sidebar-meta {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .sidebar-meta li { margin: 9px 0; }
+    .sidebar-meta strong { color: var(--text); font-weight: 620; }
+
+    nav {
+      display: grid;
+      gap: 7px;
+      font-size: 0.94rem;
+      margin: 0;
+    }
+
+    nav a {
+      color: var(--muted);
+      padding: 6px 9px;
+      border-radius: 7px;
+      margin-left: -9px;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    nav a:hover {
+      background: #eef2f6;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .sidebar-controls {
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .language-toggle {
+      display: inline-flex;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 2px;
+      background: #f8fafc;
+      margin-top: 18px;
+    }
+
+    .language-toggle button {
+      border: 0;
+      background: transparent;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font: inherit;
+      font-size: 0.86rem;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .language-toggle button.active {
+      background: #e4e7ec;
+      color: #344054;
+    }
+
+    section {
+      margin: 32px 0;
+      padding-top: 2px;
+    }
+
+    main > section:first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    main > section:first-child h2 {
+      margin-top: 0;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      margin: 0 0 14px;
+    }
+
+    h3 {
+      font-size: 1.02rem;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+
+    p { margin: 0 0 14px; }
+
+    #about p {
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    .box {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--box);
+      padding: 18px;
+    }
+
+    .news-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .news-item {
+      display: grid;
+      grid-template-columns: 98px minmax(0, 1fr);
+      gap: 18px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .news-date {
+      color: var(--muted);
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .news-item p {
+      color: #475467;
+      margin: 4px 0 0;
+    }
+
+    .button {
+      display: inline-block;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 12px;
+      color: #475467;
+      background: #f8fafc;
+      font-size: 0.9rem;
+      margin-top: 8px;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .button:hover {
+      background: #e4e7ec;
+      color: #344054;
+      text-decoration: none;
+    }
+
+    figure {
+      margin: 18px 0 0;
+    }
+
+    figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    figcaption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .team {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .person img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 12px;
+      border: 1px solid var(--line);
+      background: var(--soft);
+    }
+
+    .person strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .person span {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    [data-lang="de"] { display: none; }
+    body.lang-de [data-lang="en"] { display: none; }
+    body.lang-de [data-lang="de"] { display: inline; }
+    body.lang-de p[data-lang="de"],
+    body.lang-de div[data-lang="de"],
+    body.lang-de section[data-lang="de"],
+    body.lang-de figure[data-lang="de"],
+    body.lang-de footer[data-lang="de"],
+    body.lang-de h2[data-lang="de"],
+    body.lang-de h3[data-lang="de"] { display: block; }
+    body.lang-de span[data-lang="de"],
+    body.lang-de a[data-lang="de"] { display: inline; }
+
+    @media (max-width: 880px) {
+      .layout { grid-template-columns: 1fr; gap: 26px; }
+      aside {
+        position: static;
+        border-bottom: 1px solid var(--line);
+        padding-right: 0;
+        padding-bottom: 22px;
+      }
+      .logo-block { width: 145px; }
+      .team { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 700px) {
+      .news-item { grid-template-columns: 1fr; gap: 4px; }
+      .wrap { padding-top: 24px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="layout">
+      <aside>
+        <div class="logo-block">
+          <img src="slora_images/logo.png" alt="SLORA logo" />
+        </div>
+
+        <ul class="sidebar-meta">
+          <li><strong><span data-lang="en">Funding</span><span data-lang="de">Förderung</span></strong><br />Data:Research:Austria (ÖAW)</li>
+          <li><strong><span data-lang="en">Projected duration</span><span data-lang="de">Geplante Laufzeit</span></strong><br />01.07.2026 – 30.06.2028</li>
+          <li><strong><span data-lang="en">Institutions</span><span data-lang="de">Institutionen</span></strong><br />Medical University of Vienna<br />Complexity Science Hub</li>
+        </ul>
+
+        <div class="sidebar-controls">
+          <nav aria-label="Main navigation">
+            <a href="#news"><span data-lang="en">News</span><span data-lang="de">Aktuelles</span></a>
+            <a href="#about"><span data-lang="en">About</span><span data-lang="de">Über das Projekt</span></a>
+            <a href="#team"><span data-lang="en">Team</span><span data-lang="de">Team</span></a>
+            <a href="#contact"><span data-lang="en">Contact</span><span data-lang="de">Kontakt</span></a>
+          </nav>
+
+          <div class="language-toggle" aria-label="Language selection">
+            <button type="button" class="active" data-set-lang="en">EN</button>
+            <button type="button" data-set-lang="de">DE</button>
+          </div>
+        </div>
+      </aside>
+
+      <main id="top">
+        <section id="news">
+          <h2><span data-lang="en">News</span><span data-lang="de">Aktuelles</span></h2>
+          <div class="news-list">
+            <article class="news-item">
+              <div class="news-date">21.05.2026</div>
+              <div>
+                <h3 data-lang="en">Master’s student project advertised</h3>
+                <h3 data-lang="de">Masterprojekt ausgeschrieben</h3>
+                <p data-lang="en">
+                  We are looking for a motivated Master’s student to contribute to network-based epidemic modelling and data analysis.
+                </p>
+                <p data-lang="de">
+                  Wir suchen eine:n motivierte:n Masterstudent:in für netzwerkbasierte Epidemiemodellierung und Datenanalyse.
+                </p>
+                <a class="button" href="slora_files/SLORA_masters_posting.pdf"><span data-lang="en">Download announcement</span><span data-lang="de">Ausschreibung herunterladen</span></a>
+              </div>
+            </article>
+
+            <article class="news-item">
+              <div class="news-date">20.05.2026</div>
+              <div>
+                <h3 data-lang="en">Six weeks until project launch</h3>
+                <h3 data-lang="de">Sechs Wochen bis zum Projektstart</h3>
+                <p data-lang="en">The starting date of the SLORA project is confirmed to be 01.07.2026.</p>
+                <p data-lang="de">Der Starttermin des SLORA-Projekts ist für den 01.07.2026 bestätigt.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="about">
+          <h2><span data-lang="en">About</span><span data-lang="de">Über das Projekt</span></h2>
+          <p data-lang="en">
+            Sick leave has increased noticeably in Austria since the end of the COVID-19 measures. Respiratory illnesses appear to play an important role in this development, but the underlying reasons are still not well understood. This creates a challenge not only for the health-care system, but also for workers, employers, social insurance providers, and policymakers who need reliable evidence when discussing prevention and sick-leave policies.
+          </p>
+          <p data-lang="de">
+            Seit dem Ende der COVID-19-Maßnahmen sind die Krankenstände in Österreich deutlich gestiegen. Atemwegserkrankungen scheinen dabei eine wichtige Rolle zu spielen, die zugrunde liegenden Ursachen sind jedoch noch nicht gut verstanden. Dies stellt nicht nur das Gesundheitssystem vor Herausforderungen, sondern auch Arbeitnehmer:innen, Arbeitgeber:innen, Sozialversicherungsträger und politische Entscheidungsträger:innen, die für Präventions- und Krankenstandspolitik verlässliche Evidenz benötigen.
+          </p>
+          <p data-lang="en">
+            SLORA therefore develops targeted, data-driven surveillance of respiratory disease-related sick leave. A research team from epidemic modelling, wastewater epidemiology, infectious disease surveillance, complexity science, and health-data analysis is working together to connect different types of information in a shared modelling framework. The project will combine Austrian administrative and survey data from the <a href="https://www.statistik.at/services/tools/datenzugang/center-wissenschaft/austrian-micro-data-center-amdc">Austrian Micro Data Center</a>, sick leave data, vaccination data, and wastewater-based surveillance data.
+          </p>
+          <p data-lang="de">
+            SLORA entwickelt daher eine gezielte, datengetriebene Surveillance respiratorisch bedingter Krankenstände. Ein Forschungsteam aus Epidemiemodellierung, Abwasserepidemiologie, Infektionssurveillance, Komplexitätswissenschaft und Gesundheitsdatenanalyse arbeitet zusammen, um unterschiedliche Informationsquellen in einem gemeinsamen Modellrahmen zu verknüpfen. Das Projekt kombiniert österreichische Register- und Umfragedaten aus dem <a href="https://www.statistik.at/services/tools/datenzugang/center-wissenschaft/austrian-micro-data-center-amdc">Austrian Micro Data Center</a>, Krankenstandsdaten, Impfdaten und abwasserbasierte Surveillance-Daten.
+          </p>
+          <p data-lang="en">
+            At the centre of the project is ALPIN, the Austrian Labor-stratified metaPopulation Infection Network. ALPIN is a computer model that links the spread of respiratory infections with the datasets. It will be used to test several possible explanations for the recent rise in sick leave, including undetected SARS-CoV-2 infections, changes in immunity or virus circulation after the pandemic, changes in sick-leave behaviour, and vaccination patterns.
+          </p>
+          <p data-lang="de">
+            Im Zentrum des Projekts steht ALPIN, das Austrian Labor-stratified metaPopulation Infection Network. ALPIN ist ein Computermodell, das die Ausbreitung respiratorischer Infektionen mit den verwendeten Datensätzen verknüpft. Damit werden verschiedene mögliche Erklärungen für den jüngsten Anstieg der Krankenstände getestet, darunter unerkannte SARS-CoV-2-Infektionen, Veränderungen der Immunität oder Viruszirkulation nach der Pandemie, verändertes Krankenstandsverhalten und Impfmuster.
+          </p>
+          <p data-lang="en">
+            The recommendations and forecasts derived from SLORA are intended to support public-health authorities, policymakers, employers, and labour organizations in making fair and evidence-based decisions.
+          </p>
+          <p data-lang="de">
+            Die aus SLORA abgeleiteten Empfehlungen und Prognosen sollen Gesundheitsbehörden, politische Entscheidungsträger:innen, Arbeitgeber:innen und Arbeitnehmer:innenvertretungen bei fairen und evidenzbasierten Entscheidungen unterstützen.
+          </p>
+
+          <figure class="about-figure">
+            <img src="slora_images/sick_leave_rise.png" alt="Sick leave trends in Europe and causes of sick leave in Austria" />
+            <figcaption data-lang="en">
+              <strong>Sick leave on the rise.</strong> (a) Yearly sick-leave days per worker in European countries with updated and open sick-leave APIs. (b) Distribution of causes behind sick-leave days in Austria in 2018 and 2023. Data source: <a href="https://www.wifo.ac.at/">WIFO</a>. The SARS-CoV-2 and miscellaneous category refers to Chapter XXII of the ICD-10 classification, dedicated to special-purpose codes including COVID-19 diseases.
+            </figcaption>
+            <figcaption data-lang="de">
+              <strong>Krankenstände nehmen zu.</strong> (a) Jährliche Krankenstandstage pro Arbeitnehmer:in in europäischen Ländern mit aktualisierten und offenen Krankenstands-APIs. (b) Verteilung der Ursachen von Krankenstandstagen in Österreich in den Jahren 2018 und 2023. Datenquelle: <a href="https://www.wifo.ac.at/">WIFO</a>. Die Kategorie SARS-CoV-2 und Sonstiges bezieht sich auf Kapitel XXII der ICD-10-Klassifikation, das Sondercodes einschließlich COVID-19-Erkrankungen umfasst.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section id="team">
+          <h2><span data-lang="en">Team</span><span data-lang="de">Team</span></h2>
+          <div class="team">
+            <div class="box person">
+              <img src="slora_images/gergely_odor.jpg" alt="Gergely Odor" />
+              <strong><a href="https://gergelyodor.com/">Gergely Odor</a></strong>
+              <span>Medical University of Vienna</span>
+            </div>
+            <div class="box person">
+              <img src="slora_images/andreas_bergthaler.jpg" alt="Andreas Bergthaler" />
+              <strong><a href="https://www.bergthalerlab.org/">Andreas Bergthaler</a></strong>
+              <span>Medical University of Vienna</span>
+            </div>
+            <div class="box person">
+              <img src="slora_images/peter_klimek.jpg" alt="Peter Klimek" />
+              <strong><a href="https://csh.ac.at/peter-klimek/">Peter Klimek</a></strong>
+              <span>Complexity Science Hub</span>
+            </div>
+            <div class="box person">
+              <img src="slora_images/katharina_ledebur.jpg" alt="Katharina Ledebur" />
+              <strong><a href="https://csh.ac.at/katharina-ledebur/">Katharina Ledebur</a></strong>
+              <span>Complexity Science Hub</span>
+            </div>
+            <div class="box person">
+              <img src="slora_images/emily_grubb.jpg" alt="Emily Grubb" />
+              <strong><a href="https://www.bergthalerlab.org/our-lab">Emily Grubb</a></strong>
+              <span>Medical University of Vienna</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact">
+          <h2><span data-lang="en">Contact</span><span data-lang="de">Kontakt</span></h2>
+          <p data-lang="en">
+            For questions please contact <a href="https://gergelyodor.com/">Gergely Odor</a>.
+          </p>
+          <p data-lang="de">
+            Bei Fragen kontaktieren Sie bitte <a href="https://gergelyodor.com/">Gergely Odor</a>.
+          </p>
+        </section>
+
+        <footer>
+          <span data-lang="en">© SLORA project team. Data:Research:Austria (ÖAW) project “Sick Leave on the Rise in Austria”.</span>
+          <span data-lang="de">© SLORA-Projektteam. Data:Research:Austria (ÖAW)-Projekt „Sick Leave on the Rise in Austria“.</span>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('[data-set-lang]');
+    const setLanguage = (lang) => {
+      document.body.classList.toggle('lang-de', lang === 'de');
+      document.documentElement.lang = lang;
+      buttons.forEach((button) => {
+        button.classList.toggle('active', button.dataset.setLang === lang);
+      });
+    };
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => setLanguage(button.dataset.setLang));
+    });
+  </script>
+</body>
+</html>
